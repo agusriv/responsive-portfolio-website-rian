@@ -4,11 +4,12 @@
 /*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
-
+/* hsl(0, 0%, 0%) 
+--first-color: hsl(14, 98%, 50%)*/
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(14, 98%, 50%);
-  --black-color: hsl(0, 0%, 0%);
+  --first-color: #F1AD17;
+  --black-color: #840720;
   --black-color-light: hsl(0, 0%, 40%);
   --white-color: hsl(0, 0%, 95%);
   --title-color: hsl(0, 0%, 0%);
@@ -106,9 +107,9 @@ img {
 
 /*========== Variables Dark theme ==========*/
 body.dark-theme{
-  --first-color: hsl(14, 80%, 50%);
-  --black-color: hsl(0, 0%, 18%);
-  --black-color-light: hsl(0, 0%, 30%);
+  --first-color: #F1AD17;
+  --black-color: #840720;
+  --black-color-light: #840720;
   --title-color: hsl(0, 0%, 95%);
   --text-color: hsl(0, 0%, 70%);
   --body-color: hsl(0, 0%, 8%);
@@ -133,8 +134,8 @@ body.dark-theme{
 
 .dark-theme .home__description b{
   background: linear-gradient(90deg,
-              hsla(14, 80%, 50%, .3),
-              hsla(14, 80%, 50%, 0));
+              #840720,
+              #1E2538);
 }
 
 .dark-theme :is(.button__ghost, .services__icon i){
@@ -382,7 +383,13 @@ body.dark-theme{
 }
 
 /* Active link */
+.active-link{
+  color: var(--white-color);
+}
 
+.active-link::after{
+  width: 25%;
+}
 
 /*=============== HOME ===============*/
 .home__container{
@@ -456,7 +463,7 @@ body.dark-theme{
 }
 
 .home__social-link{
-  background-color: var(--black-color-light);
+  background-color: #1E2538;
   color: var(--white-color);
   font-size: 1.25rem;
   padding: 6px;
@@ -481,7 +488,7 @@ body.dark-theme{
 
 .home__description b{
   background: linear-gradient(90deg,
-              hsla(14, 98%, 50%, .3),
+              hsla(348, 89%, 27%, .3),
               hsla(14, 98%, 50%, 0));
 }
 
@@ -684,13 +691,43 @@ body.dark-theme{
 
 
 /*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar{
+  width: .6rem;
+  border-radius: .5rem;
+  background-color: hsl(0, 0%, 65%);
+}
 
+::-webkit-scrollbar-thumb{
+  border-radius: .5rem;
+  background-color: hsl(0, 0%, 65%);
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: hsl(0, 0%, 45%);
+}
 
 /*=============== SCROLL UP ===============*/
+.scrollup{
+  position: fixed;
+  right: 1rem;
+  bottom: -50%;
+  background-color: var(--black-color);
+  display: inline-flex;
+  padding: 8px;
+  font-size: 1.25rem;
+  color: var(--white-color);
+  z-index: var(--z-tooltip);
+  transition: bottom .4s, transform .4s, background-color .4s;
+}
 
+.scrollup:hover{
+  transform: translateY(-.5rem);
+}
 
 /* Show Scroll Up */
-
+.show-scroll{
+  bottom: 3rem;
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
@@ -766,6 +803,9 @@ body.dark-theme{
   }
   .nav__link::after{
     background-color: var(--title-color);
+  }
+  .nav__logo-img{
+    width: 5rem;
   }
 
   .active__link{
