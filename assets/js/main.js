@@ -39,7 +39,34 @@ const shadowHeader = () =>{
 window.addEventListener('scroll', shadowHeader)
 
 /*=============== EMAIL JS ===============*/
+const contactForm = document.getElementById('contact-form'),
+      contactMessage = document.getElementById('contact-message')
+      
+const sendEmail = (e) =>{
+    e.preventDefault()
 
+    // serviceID - templateID - #form - publicKey
+    emailjs.sendForm('service_s3j5bkf', 'template_jl4357g', '#contact-form', 'TsIey9f6QYBPNhf1N')
+        .then(()=> {
+            // Show sent message
+            contactMessage.textContent = 'Message sent successfully ✅'
+
+            // Remove message after five seconds
+            setTimeout(() =>{
+                contactMessage.textContent = ''
+            }, 5000)
+
+            // Clear input fields
+            contactForm.reset()
+
+        }, () =>{
+            // Show error message
+            contactMessage.textContent = 'Error sending the message 🚨'
+        })
+                
+}
+
+contactForm.addEventListener('submit', sendEmail)
 
 /*=============== SHOW SCROLL UP ===============*/ 
 const scrollUp = () =>{
@@ -111,6 +138,8 @@ const sr = ScrollReveal({
 
 })
 
-sr.reveal(`.home__perfil, .about__image`, {origin:'right'})
+sr.reveal(`.home__perfil, .about__image, .content__mail`, {origin:'right'})
 sr.reveal(`.home__name, .home__info,
-.about__container .section__title-1, .about__info`, {origin:'left'})
+            .about__container .section__title-1, .about__info,
+            .contact__social, .contact__data`, {origin:'left'})
+sr.reveal(`.services__card, .projects__card`, {interval: 100})
