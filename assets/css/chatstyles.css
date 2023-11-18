@@ -112,28 +112,32 @@ body {
 }
  
 @media (max-width: 490px) {
-    .chatbot-toggler {
-      right: 20px;
-      bottom: 20px;
-    }
     .chatbot {
-      right: 0;
-      bottom: 0;
-      height: 100%;
-      border-radius: 0;
-      width: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        max-width: 100%;
     }
-    .chatbot .chatbox {
-      height: 90%;
-      padding: 25px 15px 100px;
+
+    .chatbot header {
+        position: sticky;
+        top: 0;
+        z-index: 1;
     }
+
+    .chatbox {
+        height: calc(100% - 150px); /* Ajusta el tamaño del área del chat según sea necesario */
+    }
+
     .chatbot .chat-input {
-      padding: 5px 15px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
     }
-    .chatbot header span {
-      display: block;
-    }
-  }
+}
 
   @keyframes typingDots {
     0% {
@@ -158,4 +162,5 @@ body {
     font-size: 4rem;
     color: #840720;
 }
+
 
