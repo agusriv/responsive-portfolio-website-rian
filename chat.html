@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chatbot American School</title>
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="assets/img/logo-american-school.svg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/chatstyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="assets/js/aschat.js" defer></script>
+  </head>
+  <body>
+
+    <div class="chatbot chat__container">
+      
+      <header>
+        <h2 class="chat__title">Chatbot American School</h2>
+      </header>
+
+      <ul class="chatbox chathistorial__container" id="chatHistorial">
+        <!-- Tu contenido de chat actual, ajustado para mantener las clases y la estructura -->
+        <li class="chat prueba incoming">
+          <span class="material-symbols-outlined ">smart_toy</span>
+          <p>Hola 👋 <br>
+            ¿En qué puedo ayudarte hoy?</p>
+        </li>
+        <li class="chat prueba outgoing"></li>
+      </ul>
+      <div class="chat-input input__container">
+        <textarea class="chat__input" placeholder="Enter a message..." spellcheck="false" required id="input"></textarea>
+        <span id="sendButton" class="send__logo material-symbols-rounded">send</span>
+      </div>
+    </div>
+
+    <script src="aschat.js"></script>
+  </body>
+</html>
